@@ -11,5 +11,5 @@ def load_data(filename=FILENAME):
     try:
         with open(filename, "rb") as f:
             return pickle.load(f)
-    except FileNotFoundError:
+    except (FileNotFoundError, EOFError):
         return AddressBook()
